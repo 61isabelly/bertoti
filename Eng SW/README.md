@@ -10,3 +10,5 @@ Nela se aplica princípios de engenharia para desenvolver um software sustentáv
 ## Aula 12/08/2024
 
 • Cite 3 exemplos de Trade-offs:
+
+Portabilidade: O sistema deve ser capaz de rodar em diferentes plataformas com alterações mínimas; Manutenção: O sistema deve ser fácil de manter e atualizar; Escalabilidade: O sistema deve ser capaz de aumentar ou diminuir conforme necessário.
