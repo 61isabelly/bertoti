@@ -15,7 +15,7 @@ Portabilidade: O sistema deve ser capaz de rodar em diferentes plataformas com a
 
 ## Aula 16/08/2024
 
-• **Repetir as classes SalaAula e Aula com um exemplo seu em Java**
+• **Repetir as classes SalaAula e Aula com Testes Automatizados em Java**
 
 _Classe Formula1Car_
 ```
