@@ -33,14 +33,29 @@ Em parceria com a empresa Altave, foi desenvolvido um sistema web para monitoram
 
 O projeto contou com uma API para consumo de dados e uma modelagem de banco de dados relacional eficiente, garantindo integridade e organização das informações. O design do front-end é minimalista e intuitivo, facilitando a navegação e o uso diário do sistema. Além disso, o sistema possui funcionalidades de gestão de acesso, permitindo que usuários se autentiquem por e-mail e senha, e registra um histórico de alterações realizadas nos pontos, assegurando transparência e controle das informações por meio de controle de acesso baseado em papéis (RBAC). Também há suporte à criação de cargos e definição de pagamentos com base nas horas trabalhadas, integrando todas as necessidades de monitoramento e gestão de funcionários terceirizados em um único ambiente digital.
 
+<h1 align="center"> Pontual </h1>
+
+
 <div align="center">
   <img src="./assets/pontual.gif" alt="Descrição do GIF" width="500">
 </div>
+<br><br> 
 
-[GIT](https://github.com/Steam-Ducks/point-system)
+<p align="center">
+  <a href="https://github.com/Steam-Ducks/point-system" target="_blank">
+    <img src="https://img.shields.io/badge/Acesse%20o%20Repositório-white?style=for-the-badge&logo=github&logoColor=black" alt="GitHub Repo"/>
+  </a>
+</p>
+
 
 #### Tecnologias Utilizadas
-[![My Skills](https://skillicons.dev/icons?i=java,spring,vue,git,supabase,postgres,figma,github,idea,vscode,&theme=light)](https://skillicons.dev)
+
+<div align="center">
+  
+[![My Skills](https://skillicons.dev/icons?i=java,spring,vue,git,supabase,postgres,figma,github,idea,vscode&theme=light)](https://skillicons.dev)
+
+</div>
+
 
 #### Contribuições Pessoais
 Atuei como Scrum Master, coordenando reuniões diárias e de planejamento (daily/planning) e alinhando expectativas entre Product Owner, equipe e stakeholders, garantindo o fluxo contínuo do projeto. Além disso, acompanhei o roteiro de desenvolvimento, a manutenção do repositório e a produtividade da equipe por meio do Jira, identificando pontos de melhoria e promovendo soluções em cima da metodologia ágil SCRUM.
