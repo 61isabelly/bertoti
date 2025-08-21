@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./header.png" alt="Header" width="800">
+  <img src="./assets/header.png" alt="Header" width="800">
 </p>
 
 # Isabelly de S. Rodrigues
@@ -34,7 +34,7 @@ Em parceria com a empresa Altave, foi desenvolvido um sistema web para monitoram
 O projeto contou com uma API para consumo de dados e uma modelagem de banco de dados relacional eficiente, garantindo integridade e organização das informações. O design do front-end é minimalista e intuitivo, facilitando a navegação e o uso diário do sistema. Além disso, o sistema possui funcionalidades de gestão de acesso, permitindo que usuários se autentiquem por e-mail e senha, e registra um histórico de alterações realizadas nos pontos, assegurando transparência e controle das informações por meio de controle de acesso baseado em papéis (RBAC). Também há suporte à criação de cargos e definição de pagamentos com base nas horas trabalhadas, integrando todas as necessidades de monitoramento e gestão de funcionários terceirizados em um único ambiente digital.
 
 <div align="center">
-  <img src="pontual.gif" alt="Descrição do GIF" width="500">
+  <img src="./assets/pontual.gif" alt="Descrição do GIF" width="500">
 </div>
 
 [GIT](https://github.com/Steam-Ducks/point-system)
