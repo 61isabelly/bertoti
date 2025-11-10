@@ -1,3 +1,4 @@
+package padroes.estrategia.antipadrão;
 public abstract class Entrega {
     protected String numeroRastreio;
 

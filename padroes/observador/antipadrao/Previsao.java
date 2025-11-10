@@ -1,4 +1,4 @@
-package padrões.observador.antipadrão;
+package padroes.observador.antipadrao;
 
 public class Previsao {
     public static void atualizar(double temperatura, double umidade, double pressao){

@@ -1,3 +1,4 @@
+package padroes.estrategia.antipadrão;
 public class MainEntrega {
     public static void main(String[] args) {
         new EntregaPadrao("PED123");

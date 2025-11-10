@@ -1,4 +1,4 @@
-package padrões.observador.antipadrão;
+package padroes.observador.antipadrao;
 public class MainEstacao {
     public static void main(String[] args) {
 

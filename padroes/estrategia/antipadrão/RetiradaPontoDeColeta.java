@@ -1,3 +1,4 @@
+package padroes.estrategia.antipadrão;
 public class RetiradaPontoDeColeta extends Entrega implements Agendavel {
     public RetiradaPontoDeColeta(String numeroRastreio) {
         super(numeroRastreio);

@@ -1,4 +1,4 @@
-package padrões.estratégia.padrão;
+package padroes.estrategia.padrao;
 
 public class EntregaRapida implements ComportamentoEntrega {
     @Override
