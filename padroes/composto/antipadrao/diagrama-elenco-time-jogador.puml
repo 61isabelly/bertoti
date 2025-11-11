@@ -1,0 +1,30 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Time {
+  - nome : String
+  - jogadores : List<Jogador>
+  - setores : List<Time>
+  + Time(nome : String)
+  + addJogador(jogador : Jogador) : void
+  + addSetor(setor : Time) : void
+  + mostrar() : void
+}
+
+class Jogador {
+  - nome : String
+  - posicao : String
+  + Jogador(nome : String, posicao : String)
+  + getNome() : String
+  + getPosicao() : String
+}
+
+class Elenco {
+  + main(args : String[]) : void
+}
+
+Time "1" o-- "*" Jogador : jogadores
+Time "1" o-- "*" Time : setores
+Elenco ..> Time
+Elenco ..> Jogador
+@enduml

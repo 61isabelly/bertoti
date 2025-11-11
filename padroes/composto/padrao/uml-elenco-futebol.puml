@@ -1,0 +1,39 @@
+@startuml
+skinparam classAttributeIconSize 0
+class ElencoFutebol {
+  ~ goleiro : Jogador
+  ~ zagueiro1 : Jogador
+  ~ zagueiro2 : Jogador
+  ~ meio1 : Jogador
+  ~ meio2 : Jogador
+  ~ atacante : Jogador
+  ~ defesa : Time
+  ~ meio : Time
+  ~ ataque : Time
+  ~ time : Time
+  + main(args : String[]) : void
+}
+class Jogador {
+  - nome : String
+  - posicao : String
+  + mostrar() : void
+}
+MembroTime <|.. Jogador
+class Time {
+  - nomeTime : String
+  - membros : List<MembroTime>
+  + add(membro : MembroTime) : void
+  + mostrar() : void
+}
+MembroTime <|.. Time
+ElencoFutebol "1" *-- "*" Jogador : goleiro
+ElencoFutebol "1" *-- "*" Jogador : zagueiro1
+ElencoFutebol "1" *-- "*" Jogador : zagueiro2
+ElencoFutebol "1" *-- "*" Jogador : meio1
+ElencoFutebol "1" *-- "*" Jogador : meio2
+ElencoFutebol "1" *-- "*" Jogador : atacante
+ElencoFutebol "1" *-- "*" Time : defesa
+ElencoFutebol "1" *-- "*" Time : meio
+ElencoFutebol "1" *-- "*" Time : ataque
+ElencoFutebol "1" *-- "*" Time : time
+@enduml
