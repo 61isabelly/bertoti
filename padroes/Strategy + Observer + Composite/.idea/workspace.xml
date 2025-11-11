@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b859ca86-1efb-436d-b6f7-078c4b334e4b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AgenciaNoticias.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AppMobile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ContratacaoPorTeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ContratacaoSemRestricao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ContratacaoStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Jogador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Manchete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MembroTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ObservadorNoticia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SiteNoticias.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/src/Concert/Band.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/src/Concert/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/src/Concert/Teste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/Band/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/src/main/java/Main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/ChatBot/src/main/java/Main/MyChatBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2º Semestre/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/Atividade4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/src/List/Aluno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/src/List/SalaAula.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/List/src/List/Teste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/front/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/front/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/front/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/java/com/thehecklers/PlayStation/PlayStationApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/java/com/thehecklers/PlayStation/controller/PlayStationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/java/com/thehecklers/PlayStation/model/PlayStation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/java/com/thehecklers/PlayStation/repository/PlayStationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/java/com/thehecklers/PlayStation/service/PlayStationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/PlayStation/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3º Semestre/SpringBootUp/sbur-rest-demo/PlayStation.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/antipadrao/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/antipadrao/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/antipadrao/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/antipadrao/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/padrao/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/padrao/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/padrao/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/padrao/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composto/padrao/Diagrama de classe.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../composto/padrao/Diagrama de classe.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/antipadrao/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/antipadrao/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/antipadrao/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/antipadrao/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/antipadrao/Diagrama de Uso Antipadrão.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estrategia/padrao/Diagrama de uso padrão.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../estrategia/padrao/Diagrama de uso padrão.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../observador/antipadrao/Diagrama de uso antipadrão.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../observador/antipadrao/Diagrama de uso antipadrão.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../observador/padrao/Diagrama de uso padrão.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../observador/padrao/Diagrama de uso padrão.PNG" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="34KV4K3asyySaFVa5gmjsuCxTRE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b859ca86-1efb-436d-b6f7-078c4b334e4b" name="Changes" comment="" />
+      <created>1760962085302</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760962085302</updated>
+      <workItem from="1760962087165" duration="972000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

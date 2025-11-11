@@ -1,0 +1,101 @@
+@startuml
+skinparam classAttributeIconSize 0
+class AgenciaNoticias {
+  - observers : List<ObservadorNoticia>
+  + adicionarObservador(o : ObservadorNoticia) : void
+  + removerObservador(o : ObservadorNoticia) : void
+  + publicarManchete(manchete : Manchete) : void
+}
+class AppMobile {
+  - usuario : String
+  + atualizar(manchete : Manchete) : void
+}
+ObservadorNoticia <|.. AppMobile
+class ContratacaoPorTeto {
+  - teto : double
+  ~ custoAtual : double
+  ~ teto : return
+  + podeContratar(time : Time, candidato : Jogador) : boolean
+  + getTeto() : double
+}
+ContratacaoStrategy <|.. ContratacaoPorTeto
+class ContratacaoSemRestricao {
+  ~ true : return
+  + podeContratar(time : Time, candidato : Jogador) : boolean
+}
+ContratacaoStrategy <|.. ContratacaoSemRestricao
+interface ContratacaoStrategy {
+}
+class Jogador {
+  - nome : String
+  - salario : double
+  ~ nome : return
+  ~ salario : return
+  + getNome() : String
+  + getCusto() : double
+  + imprimir(prefixo : String) : void
+}
+MembroTime <|.. Jogador
+class Main {
+  ~ agencia : AgenciaNoticias
+  ~ timePrincipal : Time
+  ~ ataque : Time
+  ~ defesa : Time
+  ~ j1 : Jogador
+  ~ j2 : Jogador
+  ~ zagueiro : Jogador
+  ~ ok1 : boolean
+  ~ ok2 : boolean
+  ~ ok3 : boolean
+  ~ ATUAL : ELENCO
+  ~ ok4 : boolean
+  ~ FINAL : ELENCO
+  + main(args : String[]) : void
+}
+class Manchete {
+  - titulo : String
+  - corpo : String
+  ~ titulo : return
+  ~ corpo : return
+  + getTitulo() : String
+  + getCorpo() : String
+}
+interface MembroTime {
+}
+interface ObservadorNoticia {
+}
+class SiteNoticias {
+  - dominio : String
+  + atualizar(manchete : Manchete) : void
+}
+ObservadorNoticia <|.. SiteNoticias
+class Time {
+  - nome : String
+  - membros : List<MembroTime>
+  - estrategia : ContratacaoStrategy
+  ~ ok : boolean
+  ~ m : Manchete
+  ~ ok : return
+  ~ nome : return
+  + setEstrategia(nova : ContratacaoStrategy) : void
+  + adicionar(membro : MembroTime) : boolean
+  + remover(membro : MembroTime) : boolean
+  + contratar(jogador : Jogador, agencia : AgenciaNoticias) : boolean
+  + getMembros() : List<MembroTime>
+  + getNome() : String
+  + getCusto() : double
+  + imprimir(prefixo : String) : void
+}
+MembroTime <|.. Time
+AgenciaNoticias "1" o-- "*" ObservadorNoticia : observers
+Main "1" *-- "*" AgenciaNoticias : agencia
+Main "1" *-- "*" Time : timePrincipal
+Main "1" *-- "*" Time : ataque
+Main "1" *-- "*" Time : defesa
+Main "1" *-- "*" Jogador : j1
+Main "1" *-- "*" Jogador : j2
+Main "1" *-- "*" Jogador : zagueiro
+Time "1" o-- "*" MembroTime : membros
+Time "1" *-- "*" ContratacaoStrategy : estrategia
+Time "1" *-- "*" Manchete : m
+@enduml
