@@ -47,6 +47,7 @@ O projeto contou com uma API para consumo de dados e uma modelagem de banco de d
   </a>
 </p>
 
+<br><br>
 
 #### Tecnologias Utilizadas
 
@@ -277,11 +278,14 @@ A plataforma consolida o mapa georreferenciado com indicadores relevantes, class
   </table>
 </div>
 
+
 <p align="center">
   <a href="https://github.com/Steam-Ducks/traffic-monitoring-system" target="_blank">
     <img src="https://img.shields.io/badge/Acesse%20o%20Repositório-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo"/>
   </a>
 </p>
+
+<br><br>
 
 #### Tecnologias Utilizadas
 
@@ -299,7 +303,7 @@ Atuei como parte do time de desenvolvimento, com envolvimento direto na concepç
 Também desenvolvi o módulo de alertas de vias críticas, que consome um endpoint agendado e exibe em tempo real as ruas com piores condições ao lado do mapa interativo. Atuei na integração entre as camadas do sistema, conectando dados do backend aos elementos visuais da aplicação e garantindo consistência entre o que foi projetado no Figma e o resultado entregue.
 
 <details>
-<summary> Sidebar de alertas com integração ao endpoint de piores ruas</summary>
+<summary>1. Sidebar de alertas com integração ao endpoint de piores ruas</summary>
 
 <br>
 
@@ -337,7 +341,7 @@ return streets.stream()
 </details>
 
 <details>
-<summary> Composable de status global da cidade</summary>
+<summary>2. Composable de status global da cidade</summary>
 
 <br>
 
@@ -368,7 +372,7 @@ export function useLevelStatus() {
 </details>
 
 <details>
-<summary> Gráficos de métricas — decisão e implementação</summary>
+<summary> 3. Gráficos de métricas — decisão e implementação</summary>
 
 <br>
 
