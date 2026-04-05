@@ -259,8 +259,156 @@ class UserControllerTest {
 </details>
 
 <details>
-  <summary><strong>2022-1</strong></summary>
-Conteúdo do projeto 2022-1...
+  <summary><strong>2025-2</strong></summary>
+
+O projeto "Tráfegou! – Monitoramento de Tráfego Inteligente" foi desenvolvido com o objetivo de atender a uma demanda real da Prefeitura de São José dos Campos. 
+
+A plataforma consolida o mapa georreferenciado com indicadores relevantes, classifica regiões por níveis de criticidade e automatiza o disparo de alertas vinculados (com integração ao bot do Telegram) a protocolos de ação previamente definidos. A aplicação permite não apenas identificar problemas, mas também registrar ações tomadas pelos gestores, criando um histórico rastreável e estratégico para melhoria contínua da mobilidade urbana afim de agir de forma ágil diante de mudanças no cenário do trânsito.
+
+<h1 align="center"> Tráfegou </h1>
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="./assets/adminscreen-trafegou.jpeg" width="500"/></td>
+      <td><img src="./assets/trafegou.gif" width="500"/></td>
+      <td><img src="./assets/login-trafegou.jpeg" width="500"/></td>
+    </tr>
+  </table>
+</div>
+
+<p align="center">
+  <a href="https://github.com/Steam-Ducks/traffic-monitoring-system" target="_blank">
+    <img src="https://img.shields.io/badge/Acesse%20o%20Repositório-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo"/>
+  </a>
+</p>
+
+#### Tecnologias Utilizadas
+
+<div align="center">
+
+[![My Skills](https://skillicons.dev/icons?i=java,spring,maven,vue,docker,git,github&theme=dark)](https://skillicons.dev)
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" width="48" height="48" alt="Oracle"/>
+
+</div>
+
+#### Contribuições Pessoais
+Atuei como parte do time de desenvolvimento, com envolvimento direto na concepção e construção de funcionalidades voltadas à visualização e análise de dados de tráfego. Participei das decisões sobre quais métricas e indicadores seriam mais relevantes para o sistema, e implementei os componentes responsáveis por exibi-la;  incluindo gráficos de desempenho diário, velocidade e métricas semanais integrados à interface principal.
+
+Também desenvolvi o módulo de alertas de vias críticas, que consome um endpoint agendado e exibe em tempo real as ruas com piores condições ao lado do mapa interativo. Atuei na integração entre as camadas do sistema, conectando dados do backend aos elementos visuais da aplicação e garantindo consistência entre o que foi projetado no Figma e o resultado entregue.
+
+<details>
+<summary> Sidebar de alertas com integração ao endpoint de piores ruas</summary>
+
+<br>
+
+**`TrafficAlertsSidebar.vue` — componente reativo com transição e níveis de severidade:**
+```vue
+<transition name="slide-fade">
+  <aside class="sidebar" v-if="isOpen">
+    <div v-for="alert in props.alerts" :key="alert.id"
+         class="notification-card" :class="alert.level">
+      <h4>{{ alert.region }}: {{ alert.street }}</h4>
+      <p>{{ alert.statusText }}</p>
+      <small>{{ alert.time }}</small>
+    </div>
+  </aside>
+</transition>
+```
+
+**`StreetController.java` — endpoint que alimenta os alertas:**
+```java
+@GetMapping("/worst")
+public ResponseEntity<List<WorstStreetByRegionDTO>> getWorstStreets() {
+    return ResponseEntity.ok(levelService.getWorstStreetsByRegion());
+}
+```
+
+**Lógica de severidade por rua (`LevelService.java`):**
+```java
+double severity = speedLimit != null ? (speedLimit - avgSpeed) : 0.0;
+// retorna apenas a pior rua por região
+return streets.stream()
+    .max(Comparator.comparingDouble(WorstStreetByRegionDTO::getSeverity))
+    .orElse(null);
+```
+
+</details>
+
+<details>
+<summary> Composable de status global da cidade</summary>
+
+<br>
+
+**`useTrafficStatus.ts` — estado global reativo compartilhado entre dashboard e mapa:**
+```ts
+const statusMap: Record<Level, { text: string; color: string }> = {
+  1: { text: "excelente", color: "#00A651" },
+  2: { text: "bom",       color: "#FFC000" },
+  3: { text: "regular",   color: "#FF7B00" },
+  4: { text: "ruim",      color: "#D91532" },
+  5: { text: "péssimo",   color: "#a005ff" }
+}
+
+const status = computed(() => statusMap[level.value])
+
+export function useLevelStatus() {
+  return { level, status, setLevel: (newLevel: Level) => (level.value = newLevel) }
+}
+```
+
+**Consumido na view para exibição dinâmica:**
+```vue
+<h1>O trânsito em São José dos Campos está
+  <b :style="{ color: status.color }">{{ status.text }}</b> neste momento.
+</h1>
+```
+
+</details>
+
+<details>
+<summary> Gráficos de métricas — decisão e implementação</summary>
+
+<br>
+
+**`DoubleBarChart.vue` — comparação de velocidade semanal:**
+```ts
+const weeklySpeedData = {
+  labels: ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'],
+  datasets: [
+    { label: 'Semana 1', backgroundColor: '#1174e6', data: [1, 2, 3, 4, 5, 7, 9] },
+    { label: 'Semana 2', backgroundColor: '#E15759', data: [3, 5, 8, 7, 4, 5, 6] },
+  ],
+}
+```
+
+**`LineChart` — desempenho por hora do dia (24h):**
+```ts
+labels: Array.from({ length: 24 }, (_, i) => `${i}h`),
+datasets: [{
+  label: 'Velocidade Média',
+  borderColor: '#1174e6',
+  backgroundColor: 'rgba(17, 116, 230, 0.2)',
+  fill: true,
+  data: [10, 12, 15, 20, 35, 45, 50, 25, 20, 28, 35, 40, ...]
+}]
+```
+
+</details>
+
+#### Hard Skills
+* **Vue.js 3 & TypeScript:** desenvolvimento de componentes reativos, composables e integração com serviços;
+* **Java & Spring Boot:** implementação de endpoints REST e lógica de negócio no backend;
+* **Chart.js & vue-chartjs:** construção e customização de gráficos de métricas;
+* **Docker:** configuração de ambiente e containerização da aplicação;
+
+#### Soft Skills
+* **Visão de Produto:** participação ativa nas decisões sobre quais métricas e indicadores agregar ao sistema.
+* **Atenção a Detalhes:** fidelidade na implementação do design planejado no Figma e sugestão de melhorias responsivas, UI/UX.
+* **Colaboração Técnica:** integração consistente entre camadas da aplicação em conjunto com o time, e contribuí na construção da API incluindo suporte à configuração do ambiente de banco de dados em nuvem e ao pipeline de coleta de dados via scheduled tasks na Oracle Cloud/sql developer.
+
+
 </details>
 
 <details>
