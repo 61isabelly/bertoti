@@ -1,10 +1,8 @@
 <p align="center">
-  <img src="./assets/header.png" alt="Header" width="800">
+  <img src="assets/header-isabelly.png" alt="Isabelly de S. Rodrigues" width="700px">
 </p>
 
-# Isabelly de S. Rodrigues
 
-<img style="margin: 0 0 20px 20px; float: right; width: 190px; height: auto; border-radius: 12px;" src="https://avatars.githubusercontent.com/u/164695350?v=4">
 
 <div style="margin-right: 220px;">
 
@@ -12,7 +10,7 @@
 
 <div style="text-align: justify;">
 Olá!
-Meu nome é Isabelly, tenho 19 anos, sou estudante de Banco de Dados pela FATEC Jessen Vidal, de São José dos Campos, e atualmente estagiária de análise de dados na Ericsson.  
+Meu nome é Isabelly, tenho 20 anos, sou estudante de Banco de Dados pela FATEC Jessen Vidal, de São José dos Campos, e atualmente estagiária de análise de dados na Ericsson.  
 
 Minha trajetória na área de desenvolvimento começou no 1º semestre de 2024, e desde então venho adquirindo experiência nos diferentes campos que envolvem softwares estruturados. No meu dia a dia, é comum trabalhar com Python, Java, Docker e demais soluções de gerenciamento para armazenamento, consulta e organização de informações.  
 
@@ -271,10 +269,7 @@ A plataforma consolida o mapa georreferenciado com indicadores relevantes, class
 <div align="center">
   <table>
     <tr>
-      <td><img src="./assets/adminscreen-trafegou.jpeg" width="500"/></td>
-      <td><img src="./assets/trafegou.gif" width="500"/></td>
-      <td><img src="./assets/login-trafegou.jpeg" width="500"/></td>
-    </tr>
+      <td><img src="./assets/trafegou-gif1.gif" width="500"/>
   </table>
 </div>
 
@@ -416,14 +411,401 @@ datasets: [{
 </details>
 
 <details>
-  <summary><strong>2022-2</strong></summary>
-Conteúdo do projeto 2022-2...
+  <summary><strong>2024-2</strong></summary>
+
+O projeto "PAS — Peer Assessment System" foi desenvolvido como uma aplicação desktop em JavaFX para apoiar o processo de avaliação acadêmica de alunos e equipes ao longo das sprints. O sistema oferece duas frentes principais: a avaliação individual de alunos por critérios (autonomia, prazo, colaboração e produtividade), com distribuição limitada de pontos entre os membros da equipe, e a avaliação coletiva de sprints, em que cada turma pode pontuar suas equipes em diferentes ciclos do projeto.
+
+A aplicação foi pensada para garantir consistência nas avaliações: validações em tempo real impedem que o avaliador exceda o total de pontos disponíveis, popups exibem descrições contextuais de cada critério, e mensagens de erro orientam o usuário antes de qualquer salvamento. A interface foi construída com FXML, separando a camada visual da lógica de controle, e estruturada em layouts dinâmicos (VBox/HBox) que se adaptam à quantidade de critérios ou equipes carregadas, simulando o comportamento de uma tabela responsiva.
+
+<h1 align="center"> PACER </h1>
+
+<div align="center">
+  <img src="assets/recap-img1.jpeg" alt="Demonstração do PAS" width="500">
+  <img src="assets/recap-img2.jpeg" alt="Demonstração do PAS" width="500">
+</div>
+<br><br>
+
+<p align="center">
+  <a href="https://github.com/Steam-Ducks/pacer-assessment-system" target="_blank">
+    <img src="https://img.shields.io/badge/Acesse%20o%20Repositório-white?style=for-the-badge&logo=github&logoColor=black" alt="GitHub Repo"/>
+  </a>
+</p>
+
+<br><br>
+
+#### Tecnologias Utilizadas
+
+<div align="center">
+
+[![My Skills](https://skillicons.dev/icons?i=java,maven,idea,git,github&theme=light)](https://skillicons.dev)
+
+</div>
+
+#### Contribuições Pessoais
+Atuei no desenvolvimento das telas de avaliação do sistema, sendo responsável pela construção das interfaces FXML e das classes controller que dão vida a elas. Implementei a tela de avaliação individual de alunos, em que o avaliador distribui um total fechado de 10 pontos entre os critérios definidos, com bloqueio automático caso a soma ultrapasse o limite e popups dedicados para descrição de cada critério.
+
+Também desenvolvi a tela de avaliação de sprints, com carregamento dinâmico de equipes a partir da turma selecionada e validação de notas no intervalo de 1 a 100. Modelei as classes de domínio (`notaAluno` e `notaSprint`) que representam as avaliações no sistema e estruturei a configuração Maven do projeto para integrar JavaFX, ControlsFX e JUnit, garantindo o ambiente de execução e testes.
+
+<details>
+  <summary>1. Tela de Avaliação de Aluno com distribuição limitada de pontos</summary>
+
+## Listener de pontos restantes
+
+**`telaAlunoController.java` — controle dinâmico do total de pontos disponíveis:**
+```java
+comboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
+    int diff = newValue - oldValue;
+
+    if (totalPontos - diff < 0) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Pontos insuficientes");
+        alert.setContentText("Você não tem pontos suficientes para esta ação.");
+        alert.showAndWait();
+
+        comboBox.setValue(oldValue);
+        totalPontos -= diff;
+        lbl_pontosRestantes.setText("Pontos restantes: " + totalPontos);
+    } else {
+        totalPontos -= diff;
+        lbl_pontosRestantes.setText("Pontos restantes: " + totalPontos);
+    }
+});
+```
+
+**Popup com descrição contextual de cada critério:**
+```java
+private void mostrarPopupDescricao(String criterio, String descricao) {
+    Stage popupStage = new Stage();
+    popupStage.initModality(Modality.APPLICATION_MODAL);
+    popupStage.setTitle("Descrição do Critério");
+
+    Label lblCriterio = new Label("Critério: " + criterio);
+    lblCriterio.setFont(new Font("Arial", 16));
+
+    Label lblDescricao = new Label(descricao);
+    lblDescricao.setWrapText(true);
+
+    VBox vbox = new VBox(lblCriterio, lblDescricao);
+    vbox.setSpacing(10);
+    vbox.setPadding(new Insets(10));
+
+    Scene scene = new Scene(vbox, 300, 150);
+    popupStage.setScene(scene);
+    popupStage.showAndWait();
+}
+```
+
 </details>
 
 <details>
-  <summary><strong>2023-1</strong></summary>
-Conteúdo do projeto 2023-1...
+  <summary>2. Tela de Avaliação de Sprint com equipes dinâmicas por turma</summary>
+
+## Carregamento condicional de equipes
+
+**`telaSprintController.java` — equipes filtradas a partir da turma selecionada:**
+```java
+private void atualizarEquipes(String turmaSelecionada) {
+    List<String> equipes = switch (turmaSelecionada) {
+        case "BD-1" -> List.of("Equipe A", "Equipe B", "Equipe C", "Equipe D", "Equipe E");
+        case "BD-2" -> List.of("SteamDucks", "SQLutions", "DenariusData", "AlphaCode", "CyberNexus");
+        case "BD-3" -> List.of("Equipe 1", "Equipe 2", "Equipe 3", "Equipe 4", "Equipe 5");
+        case "BD-4" -> List.of("Equipe01", "Equipe02", "Equipe03", "Equipe04", "Equipe05");
+        case "BD-5" -> List.of("Equipe_1", "Equipe_2", "Equipe_3", "Equipe_4", "Equipe_5");
+        case "BD-6" -> List.of("Equipe I", "Equipe II", "Equipe III", "Equipe IV", "Equipe V");
+        default -> List.of();
+    };
+
+    vbox_equipes.getChildren().clear();
+
+    for (String equipe : equipes) {
+        Label label = new Label(equipe);
+        TextField textField = new TextField();
+        textField.setPromptText("0");
+
+        textField.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*") ||
+                (newValue.length() > 0 && (Integer.parseInt(newValue) < 1 || Integer.parseInt(newValue) > 100))) {
+                textField.setText(oldValue);
+            }
+        });
+
+        HBox hbox = new HBox(new HBox(label), new HBox(textField));
+        VBox.setMargin(hbox, new Insets(5, 70, 5, 60));
+        vbox_equipes.getChildren().add(hbox);
+    }
+}
+```
+
 </details>
+
+<details>
+  <summary>3. Modelagem das classes de domínio</summary>
+
+## Entidades de avaliação
+
+**`notaAluno.java` — representa uma nota individual atribuída a um aluno em um critério específico:**
+```java
+public class notaAluno {
+    private int nota;
+    private String aluno;
+    private String criterio;
+    private String descCriterio;
+    private String sprint;
+
+    public notaAluno(int nota, String aluno, String criterio, String descCriterio, String sprint) {
+        this.nota = nota;
+        this.aluno = aluno;
+        this.criterio = criterio;
+        this.descCriterio = descCriterio;
+        this.sprint = sprint;
+    }
+    // getters e setters
+}
+```
+
+**`notaSprint.java` — representa a nota atribuída a uma equipe em uma sprint:**
+```java
+public class notaSprint {
+    private int nota;
+    private String turma;
+    private String equipe;
+    private String sprint;
+
+    public notaSprint(int nota, String turma, String equipe, String sprint) {
+        this.nota = nota;
+        this.turma = turma;
+        this.equipe = equipe;
+        this.sprint = sprint;
+    }
+    // getters e setters
+}
+```
+
+</details>
+
+<details>
+  <summary>4. Configuração do ambiente Maven com JavaFX</summary>
+
+## pom.xml
+
+**Dependências e plugin do JavaFX para empacotamento da aplicação:**
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>22.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>22.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.controlsfx</groupId>
+        <artifactId>controlsfx</artifactId>
+        <version>11.2.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+**`module-info.java` — declaração dos módulos requeridos pelo JavaFX:**
+```java
+module org.example.telaAvaliacaoAluno {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires org.controlsfx.controls;
+
+    opens org.example.telaAvaliacaoAluno to javafx.fxml;
+    exports org.example.telaAvaliacaoAluno;
+}
+```
+
+</details>
+
+#### Hard Skills
+* **Java & JavaFX:** desenvolvimento de aplicações desktop com interfaces ricas e responsivas;
+* **FXML:** estruturação de telas declarativas e separação entre camada de visualização e lógica de controle;
+* **Maven:** gerenciamento de dependências, configuração de plugins e empacotamento da aplicação com `javafx-maven-plugin`;
+* **ControlsFX & JUnit:** uso de componentes complementares de UI e configuração base para testes unitários;
+* **Git & GitHub:** versionamento de código e organização de commits incrementais por feature;
+
+#### Soft Skills
+* **Atenção a Regras de Negócio:** tradução de critérios acadêmicos em validações concretas (limite de pontos, faixas de nota, campos obrigatórios) que orientam o usuário durante o preenchimento.
+* **Pensamento em Componentes:** estruturação das telas em layouts dinâmicos reutilizáveis (VBox/HBox) que se adaptam à quantidade de critérios e equipes carregados.
+* **Cuidado com a Experiência do Usuário:** uso de popups, mensagens de erro contextuais e descrições de critérios para reduzir dúvidas no momento da avaliação.
+* **Organização de Código:** separação clara entre Application, Controller e classes de domínio, mantendo cada responsabilidade isolada.
+
+</details>
+
+
+<details>
+  <summary><strong>2024-1</strong></summary>
+
+O projeto "Scientific Calculator" foi desenvolvido como uma aplicação desktop para apoiar cálculos matemáticos do dia a dia acadêmico, indo além das operações básicas e oferecendo suporte a funções científicas como trigonometria, logaritmos, exponenciação, raízes e constantes matemáticas. A proposta foi construir uma calculadora robusta o suficiente para servir como apoio em disciplinas de exatas, mas com uma interface clara e intuitiva.
+
+A aplicação trata o input do usuário como uma expressão matemática completa, permitindo que cálculos encadeados sejam digitados de uma vez (com parênteses, prioridade de operadores e funções aninhadas) em vez de exigir entradas passo a passo. Há também tratamento de erros para entradas inválidas, divisões por zero e expressões malformadas, garantindo que a aplicação não trave diante de inputs inesperados e ofereça feedback claro ao usuário.
+
+<h1 align="center"> Scientific Calculator </h1>
+
+<div align="center">
+  <img src="assets/sc-img1.jpeg" alt="Demonstração da Scientific Calculator" width="500">
+  <img src="assets/sc-img1.jpeg" alt="Demonstração da Scientific Calculator" width="500">
+</div>
+<br><br>
+
+<p align="center">
+  <a href="https://github.com/Steam-Ducks/scientific-calculator">
+    <img src="https://img.shields.io/badge/Acesse%20o%20Repositório-white?style=for-the-badge&logo=github&logoColor=black" alt="GitHub Repo"/>
+  </a>
+</p>
+
+<br><br>
+
+#### Tecnologias Utilizadas
+
+<div align="center">
+
+[![My Skills](https://skillicons.dev/icons?i=java,maven,idea,git,github&theme=light)](https://skillicons.dev)
+
+</div>
+
+#### Contribuições Pessoais
+Atuei no desenvolvimento da calculadora, sendo responsável pela construção da interface gráfica e pela lógica de avaliação das expressões matemáticas. Implementei o painel de botões com as operações básicas e científicas, organizado de forma a manter um agrupamento visual coerente entre operadores, números e funções, e conectei cada botão ao display principal de entrada.
+
+Também trabalhei no parser de expressões responsável por interpretar a string digitada pelo usuário e calcular o resultado respeitando a precedência de operadores e o aninhamento de funções. Implementei o tratamento de exceções para casos de divisão por zero, parênteses não balanceados e funções aplicadas a domínios inválidos (como raiz de número negativo), exibindo mensagens de erro amigáveis em vez de falhas silenciosas.
+
+<details>
+  <summary>1. Avaliação de expressões matemáticas com precedência de operadores</summary>
+
+## Parser e cálculo
+
+**Avaliação da expressão digitada com suporte a funções científicas:**
+```java
+public double avaliarExpressao(String expressao) {
+    try {
+        expressao = expressao.replace("π", String.valueOf(Math.PI))
+                             .replace("e", String.valueOf(Math.E));
+
+        return calcular(expressao);
+    } catch (ArithmeticException e) {
+        throw new IllegalArgumentException("Operação inválida: " + e.getMessage());
+    } catch (Exception e) {
+        throw new IllegalArgumentException("Expressão malformada");
+    }
+}
+
+private double aplicarFuncao(String funcao, double valor) {
+    return switch (funcao) {
+        case "sin" -> Math.sin(Math.toRadians(valor));
+        case "cos" -> Math.cos(Math.toRadians(valor));
+        case "tan" -> Math.tan(Math.toRadians(valor));
+        case "log" -> Math.log10(valor);
+        case "ln"  -> Math.log(valor);
+        case "sqrt" -> {
+            if (valor < 0) throw new ArithmeticException("raiz de número negativo");
+            yield Math.sqrt(valor);
+        }
+        default -> throw new IllegalArgumentException("Função desconhecida: " + funcao);
+    };
+}
+```
+
+</details>
+
+<details>
+  <summary>2. Tratamento de erros e feedback ao usuário</summary>
+
+## Captura de exceções no display
+
+**Mensagens de erro contextuais para entradas inválidas:**
+```java
+btn_Igual.setOnAction(event -> {
+    String expressao = display.getText();
+
+    try {
+        double resultado = calculadora.avaliarExpressao(expressao);
+        display.setText(formatarResultado(resultado));
+    } catch (IllegalArgumentException e) {
+        display.setText("Erro: " + e.getMessage());
+    }
+});
+
+private String formatarResultado(double resultado) {
+    if (Double.isNaN(resultado) || Double.isInfinite(resultado)) {
+        return "Erro";
+    }
+    if (resultado == (long) resultado) {
+        return String.valueOf((long) resultado);
+    }
+    return String.valueOf(resultado);
+}
+```
+
+</details>
+
+<details>
+  <summary>3. Construção do painel de botões e interação com o display</summary>
+
+## Layout e binding dos botões
+
+**Conexão entre os botões da interface e o display de entrada:**
+```java
+private void configurarBotao(Button botao, String valor) {
+    botao.setOnAction(event -> {
+        String atual = display.getText();
+        display.setText(atual + valor);
+    });
+}
+
+@FXML
+public void initialize() {
+    configurarBotao(btn_0, "0");
+    configurarBotao(btn_1, "1");
+    configurarBotao(btn_Soma, "+");
+    configurarBotao(btn_Sub, "-");
+    configurarBotao(btn_Mult, "*");
+    configurarBotao(btn_Div, "/");
+
+    configurarBotao(btn_Sin, "sin(");
+    configurarBotao(btn_Cos, "cos(");
+    configurarBotao(btn_Sqrt, "sqrt(");
+    configurarBotao(btn_Log, "log(");
+
+    btn_Limpar.setOnAction(event -> display.clear());
+    btn_Apagar.setOnAction(event -> {
+        String texto = display.getText();
+        if (!texto.isEmpty()) {
+            display.setText(texto.substring(0, texto.length() - 1));
+        }
+    });
+}
+```
+
+</details>
+
+#### Hard Skills
+* **Java:** desenvolvimento da lógica de avaliação de expressões e tratamento de exceções;
+* **JavaFX & FXML:** construção da interface gráfica com layout em grid e binding entre botões e display;
+* **Math API:** uso das funções científicas nativas do Java (`Math.sin`, `Math.log`, `Math.sqrt`, etc.) com conversão adequada entre graus e radianos;
+* **Maven:** estruturação do projeto e gerenciamento de dependências;
+* **Git & GitHub:** versionamento incremental por funcionalidade;
+
+#### Soft Skills
+* **Pensamento Algorítmico:** decomposição da expressão matemática em etapas (tokenização, precedência, avaliação) para chegar ao resultado correto.
+* **Robustez no Desenvolvimento:** antecipação de cenários de erro (divisão por zero, raiz de negativo, parênteses não fechados) com mensagens claras em vez de falhas inesperadas.
+* **Organização Visual:** agrupamento dos botões por categoria (números, operadores, funções científicas) para tornar a interface mais legível e funcional.
+* **Atenção ao Detalhe:** formatação inteligente dos resultados (inteiros sem casas decimais desnecessárias, tratamento de `NaN` e `Infinity`) para entregar uma experiência polida.
+
+</details>
+
 
 <details>
   <summary><strong>2023-2</strong></summary>
